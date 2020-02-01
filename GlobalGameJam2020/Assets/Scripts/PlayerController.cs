@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     {
         axisHorizontal = Input.GetAxisRaw("Horizontal");
 
-        if (!inputJump)
+        if (!inputJump && grounded)
             inputJump = Input.GetButtonDown("Jump");
 
         Move();
@@ -55,10 +55,24 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if (inputJump && grounded)
+        if (inputJump)
         {
             inputJump = false;
             rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Grounded!");
+        //grounded = other.CompareTag("Ground");
+        grounded = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        Debug.Log("Grounded!");
+        //grounded = other.CompareTag("Ground");
+        grounded = false;
     }
 }
