@@ -29,7 +29,9 @@ public class PlayerController : MonoBehaviour
     private void Update() 
     {
         axisHorizontal = Input.GetAxisRaw("Horizontal");
-        inputJump = Input.GetButtonDown("Jump");
+
+        if (!inputJump)
+            inputJump = Input.GetButtonDown("Jump");
 
         Move();
         Flip();
