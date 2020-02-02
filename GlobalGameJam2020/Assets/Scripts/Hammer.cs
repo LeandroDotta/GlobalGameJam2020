@@ -86,6 +86,7 @@ public class Hammer : MonoBehaviour
     {
         Debug.Log("Hammer Collided");
         SetState(State.Returning);
+        SoundController.Instance.PlaySFX(7);
 
     }
 
