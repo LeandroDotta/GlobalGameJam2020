@@ -273,7 +273,7 @@ public class PlayerController : MonoBehaviour
             if (pickup.restore)
                 health.Restore(pickup.health);
 
-            SoundController.Instance.PlaySFX(11);
+            SoundController.Instance.PlaySFX(10);
 
             Destroy(pickup.gameObject);
         }
