@@ -6,14 +6,25 @@ public class Plug : MonoBehaviour
 {
     [SerializeField] private Transform baseTransform;
     [SerializeField] private Transform bodyTransform;
+    [SerializeField] private Sprite spriteOff;
+    [SerializeField] private Sprite spriteOn;
+
 
     private bool isFixed;
     private Collider2D triggerAreaCurrentColl;
+    private SpriteRenderer spriteRenderer;
 
+    private void Start()
+    {
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer.sprite = spriteOff;
+    }
 
     private void PlugIt()
     {
         bodyTransform.position = baseTransform.position;
+        //spriteRenderer.sprite = spriteOn;
+        //SoundController.Instance.PlaySFX(10);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
