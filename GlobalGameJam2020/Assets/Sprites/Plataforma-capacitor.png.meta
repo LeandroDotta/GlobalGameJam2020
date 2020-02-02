@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: 2d4c581260737cf3781d68311c95d0a2
+guid: 41976146b216dbcd79268cbd907ef8e8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1302393223000752458
-    second: Componentes_0
+      213: -8138058095797723338
+    second: Plataforma-capacitor_0
   - first:
-      213: 613936538977289601
-    second: Componentes_1
+      213: -4542343457111687483
+    second: Plataforma-capacitor_1
   - first:
-      213: 2860627999527277903
-    second: Componentes_2
+      213: 1884971267129276230
+    second: Plataforma-capacitor_2
   - first:
-      213: 6897421818563775846
-    second: Componentes_3
+      213: 2758899394819540593
+    second: Plataforma-capacitor_3
+  - first:
+      213: 8800665487896117356
+    second: Plataforma-capacitor_4
+  - first:
+      213: 4960703874386080706
+    second: Plataforma-capacitor_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -57,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 256
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -122,12 +128,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Componentes_0
+      name: Plataforma-capacitor_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
+        width: 768
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -136,61 +142,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4106d66cb7031210800000000000000
-      internalID: 1302393223000752458
+      spriteID: 63f1c76774fcf0f80800000000000000
+      internalID: -8138058095797723338
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Componentes_1
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 185cf588704258800800000000000000
-      internalID: 613936538977289601
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Componentes_2
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f451c52620ef2b720800000000000000
-      internalID: 2860627999527277903
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Componentes_3
+      name: Plataforma-capacitor_1
       rect:
         serializedVersion: 2
         x: 768
         y: 0
-        width: 256
+        width: 768
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -199,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66dc581999098bf50800000000000000
-      internalID: 6897421818563775846
+      spriteID: 5ceb90f21ba56f0c0800000000000000
+      internalID: -4542343457111687483
       vertices: []
       indices: 
       edges: []

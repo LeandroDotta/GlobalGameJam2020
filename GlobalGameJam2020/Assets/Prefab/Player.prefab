@@ -170,6 +170,7 @@ MonoBehaviour:
   groundCheckLayer:
     serializedVersion: 2
     m_Bits: 1024
+  hitImpactForce: 10
   hammerSpawnPoint: {fileID: 3642561901574793164}
   stairSpawnPoint: {fileID: 19094365835500632}
   hammerPrefab: {fileID: 3473096810201064479, guid: 342ccdc99e2f86bf5aa1e9e6f9a04f20,
