@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float invulnerableTime;
     [SerializeField] private float groundCheckSize = 0.1f;
     [SerializeField] private LayerMask groundCheckLayer;
+    [SerializeField] private float hitImpactForce = 5;
 
     [Header("Spawn Points")]
     [SerializeField] private Transform hammerSpawnPoint;
@@ -177,6 +178,8 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Hazard: " + hazard);
         if (hazard != null)
         {
+
+
             if (hazard.oneHitKill)
             {
                 Die();
@@ -185,6 +188,10 @@ public class PlayerController : MonoBehaviour
             {
                 if (!invulnerable)
                 {
+                    Vector2 impactDirection = new Vector2(transform.localScale.x > 0 ? -1 : 1, 1).normalized;
+                    rb2d.velocity = Vector2.zero;
+                    rb2d.AddForce(impactDirection * hitImpactForce, ForceMode2D.Impulse);
+
                     Debug.Log("Applying Damage = " + hazard.damage);
                     int life = health.TakeDamage(hazard.damage);
 
