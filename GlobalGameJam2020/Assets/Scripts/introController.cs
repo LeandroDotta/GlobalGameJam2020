@@ -11,6 +11,8 @@ public class introController : MonoBehaviour
     public AudioClip sfxButtonClickAC;
     public AudioClip sfxButtonHoverAC;
 
+    public GameObject panelInstructions;
+
 
     public void carregaCena(string cena)
     {
@@ -26,6 +28,11 @@ public class introController : MonoBehaviour
     public void PlaySfxButtonHover()
     {
         sfxButtonAS.PlayOneShot(sfxButtonHoverAC);
+    }
+
+    public void painelInstructions()
+    {
+        panelInstructions.SetActive(true);
     }
 
 
