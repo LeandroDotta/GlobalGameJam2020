@@ -11,8 +11,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private float invulnerableTime;
 
+    [Header("Spawn Points")]
+    [SerializeField] private Transform hammerSpawnPoint;
+    [SerializeField] private Transform stairSpawnPoint;
 
+    [Header("Components")]
     [SerializeField] Collider2D groundCheck;
+    [SerializeField] private GameObject hammerPrefab;
 
     private float axisHorizontal;
     private float axisVertical;
@@ -26,7 +31,9 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb2d;
     private PlayerHealth health;
+    private PlayerInventory inventory;
     private Stair focusedStair;
+    private Hammer hammer;
 
     private int layerWalkable;
 
@@ -34,7 +41,15 @@ public class PlayerController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         health = GetComponent<PlayerHealth>();
+        inventory = GetComponent<PlayerInventory>();
+
         layerWalkable = LayerMask.NameToLayer("Walkable");
+
+        GameObject hammerObj = Instantiate(hammerPrefab);
+        hammer = hammerObj.GetComponent<Hammer>();
+        hammer.playerTransform = this.transform;
+        hammer.gameObject.SetActive(false);
+
     }
 
     private void FixedUpdate()
@@ -60,13 +75,31 @@ public class PlayerController : MonoBehaviour
 
         if (canRotateStair)
         {
-            Debug.Log("CAN ROTATE!!");
             if (Input.GetButtonDown("Rotate"))
             {
                 Debug.Log("ROTATE PRESSED");
                 focusedStair.ToggleOrientation();
+            } 
+            else if (Input.GetButtonDown("Grab"))
+            {
+                inventory.StoreStair(focusedStair.gameObject);
             }
         }
+        else
+        {
+            if (Input.GetButtonDown("Grab"))
+            {
+                int direction = transform.localScale.x > 0 ? 1 : -1;
+                inventory.SpawnStair(stairSpawnPoint.position, direction);
+            }
+        }
+
+        if (Input.GetButtonDown("Shoot"))
+        {
+            Shoot();
+        }
+
+
 
         Move();
         Flip();
@@ -163,6 +196,16 @@ public class PlayerController : MonoBehaviour
             StopClimb();
             rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
+    }
+
+    private void Shoot()
+    {
+        if (hammer.gameObject.activeSelf)
+            return;
+
+        hammer.transform.position = hammerSpawnPoint.position;
+        hammer.direction = new Vector2((transform.localScale.x > 0 ? 1 : -1), 0);
+        hammer.gameObject.SetActive(true);
     }
 
     private void OnCollisionStay2D(Collision2D col)

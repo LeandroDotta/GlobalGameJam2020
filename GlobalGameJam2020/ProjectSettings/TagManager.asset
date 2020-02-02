@@ -10,6 +10,7 @@ TagManager:
   - StairBase
   - Hazard
   - Pickup
+  - Hammer
   layers:
   - Default
   - TransparentFX
