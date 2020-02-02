@@ -310,6 +310,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 458aeb12962b67f459c13dc7b94eac01, type: 3}
   - {fileID: 8300000, guid: 88a7135854c608840a5ef4ee1f56f788, type: 3}
   - {fileID: 8300000, guid: cd70e2f33dc7ef84bb72b30c0e6164be, type: 3}
+  - {fileID: 8300000, guid: 6dfdf06e97a024d4ebab414253180527, type: 3}
+  - {fileID: 8300000, guid: 953c44b44e72df544a6d54139cb02f41, type: 3}
+  - {fileID: 8300000, guid: 31532982a9426a744850d034c9ffd672, type: 3}
   musicAC:
   - {fileID: 8300000, guid: b4ea37eaed3962b4282521101eed356b, type: 3}
   - {fileID: 8300000, guid: 1a34c570d19fe764db390869bf77d262, type: 3}
