@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 6060530978279041925}
   - component: {fileID: 6060530978279041923}
   - component: {fileID: 6060530978279041922}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 6060530979273798618}
   - component: {fileID: 6060530979273798621}
   - component: {fileID: 6060530979273798620}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Platforms_OneWay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -645,7 +645,7 @@ GameObject:
   - component: {fileID: 6060530979983580085}
   - component: {fileID: 6060530979983580080}
   - component: {fileID: 6060530979983580083}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
