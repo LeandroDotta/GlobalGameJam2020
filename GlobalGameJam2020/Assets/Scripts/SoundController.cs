@@ -15,17 +15,35 @@ public class SoundController : MonoBehaviour
     public AudioClip [] sfxAC;
     public AudioClip[] musicAC;
 
+    private static SoundController _instance;
 
-
-    // Start is called before the first frame update
-    void Start()
+    public static SoundController Instance
     {
-        
+        get
+        {
+            return _instance;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        if (_instance != null && _instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        _instance = this;
+        DontDestroyOnLoad(this);
+    }
+
+    public void PlaySFX(params int[] sounds)
+    {
+        int index = Random.Range(0, sounds.Length);
+        sfxAS.PlayOneShot(sfxAC[sounds[index]]);
+    }
+
+    public void PlaySFX(int soundIndex)
+    {
+        sfxAS.PlayOneShot(sfxAC[soundIndex]);
     }
 }

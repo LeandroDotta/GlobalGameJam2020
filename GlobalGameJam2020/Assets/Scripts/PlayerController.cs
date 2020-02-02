@@ -36,14 +36,18 @@ public class PlayerController : MonoBehaviour
     private PlayerInventory inventory;
     private Stair focusedStair;
     private Hammer hammer;
+    private AudioSource audioSource;
 
     private int layerWalkable;
+
+
 
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         health = GetComponent<PlayerHealth>();
         inventory = GetComponent<PlayerInventory>();
+        audioSource = GetComponent<AudioSource>();
 
         layerWalkable = LayerMask.NameToLayer("Walkable");
 
@@ -130,6 +134,16 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        if ((axisVertical !=0 | axisHorizontal !=0))
+        {
+            if (!audioSource.isPlaying)
+                audioSource.Play();
+        }
+        else
+        {
+            if(audioSource.isPlaying)
+                audioSource.Stop();
+        }
         if (climbing)
         {
             Vector2 movement = new Vector2(0, axisVertical) * climbSpeed * Time.deltaTime;
@@ -145,7 +159,6 @@ public class PlayerController : MonoBehaviour
             Vector2 movement = new Vector2(axisHorizontal, 0) * speed * Time.deltaTime;
             transform.Translate(movement);
         }
-
     }
 
     private void Flip()
@@ -200,6 +213,8 @@ public class PlayerController : MonoBehaviour
             inputJump = false;
             StopClimb();
             rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
+            SoundController.Instance.PlaySFX(0, 1, 2);
         }
     }
 
@@ -211,6 +226,8 @@ public class PlayerController : MonoBehaviour
         hammer.transform.position = hammerSpawnPoint.position;
         hammer.direction = new Vector2((transform.localScale.x > 0 ? 1 : -1), 0);
         hammer.gameObject.SetActive(true);
+
+        SoundController.Instance.PlaySFX(3, 4, 5);
     }
 
     private void OnCollisionStay2D(Collision2D col)
