@@ -194,6 +194,15 @@ public class PlayerController : MonoBehaviour
         {
             grounded = true;
         }
+
+        if (other.CompareTag("Pickup"))
+        {
+            Pickup pickup = other.GetComponent<Pickup>();
+            if (pickup.restore)
+                health.Restore(pickup.health);
+
+            Destroy(pickup.gameObject);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
