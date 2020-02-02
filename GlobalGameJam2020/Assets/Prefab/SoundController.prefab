@@ -313,6 +313,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6dfdf06e97a024d4ebab414253180527, type: 3}
   - {fileID: 8300000, guid: 953c44b44e72df544a6d54139cb02f41, type: 3}
   - {fileID: 8300000, guid: 31532982a9426a744850d034c9ffd672, type: 3}
+  - {fileID: 8300000, guid: 08600c1ec5d36394fa9ed858361daed5, type: 3}
   musicAC:
   - {fileID: 8300000, guid: b4ea37eaed3962b4282521101eed356b, type: 3}
   - {fileID: 8300000, guid: 1a34c570d19fe764db390869bf77d262, type: 3}
