@@ -33,7 +33,7 @@ public class SoundController : MonoBehaviour
         }
 
         _instance = this;
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
     }
 
     public void PlaySFX(params int[] sounds)
