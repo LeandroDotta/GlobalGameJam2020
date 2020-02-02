@@ -192,8 +192,6 @@ public class PlayerController : MonoBehaviour
                     rb2d.velocity = Vector2.zero;
                     rb2d.AddForce(impactDirection * hitImpactForce, ForceMode2D.Impulse);
 
-                    SoundController.Instance.PlaySFX(11);
-
                     Debug.Log("Applying Damage = " + hazard.damage);
                     int life = health.TakeDamage(hazard.damage);
 
