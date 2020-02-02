@@ -39,11 +39,19 @@ public class SoundController : MonoBehaviour
     public void PlaySFX(params int[] sounds)
     {
         int index = Random.Range(0, sounds.Length);
+        int soundIndex = sounds[index];
+
+        if (soundIndex >= sfxAC.Length)
+            return;
+
         sfxAS.PlayOneShot(sfxAC[sounds[index]]);
     }
 
     public void PlaySFX(int soundIndex)
     {
+        if (soundIndex >= sfxAC.Length)
+            return;
+
         sfxAS.PlayOneShot(sfxAC[soundIndex]);
     }
 }
