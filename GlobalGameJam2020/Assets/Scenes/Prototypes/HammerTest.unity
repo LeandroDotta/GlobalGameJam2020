@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 619448104}
   - component: {fileID: 619448103}
   - component: {fileID: 619448102}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2773,12 +2773,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8037018363649388759, guid: d9cac1b8b11433aa88646a0d49777304,
-        type: 3}
-      propertyPath: hammerPrefab
-      value: 
-      objectReference: {fileID: 3473096810201064479, guid: 342ccdc99e2f86bf5aa1e9e6f9a04f20,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9cac1b8b11433aa88646a0d49777304, type: 3}
 --- !u!1 &1197129441

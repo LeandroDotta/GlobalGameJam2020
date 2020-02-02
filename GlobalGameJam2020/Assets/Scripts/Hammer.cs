@@ -54,9 +54,13 @@ public class Hammer : MonoBehaviour
 
     private void Follow()
     {
+
         Vector2 dir = (playerTransform.position - transform.position).normalized;
         Debug.Log("Hammer returning to direction: " + dir);
-        transform.Translate(dir * returnSpeed * Time.deltaTime);
+        rb2d.velocity = dir * returnSpeed;
+        
+
+        //transform.Translate(dir * returnSpeed * Time.deltaTime);
     }
 
     private void SetState(State newState)

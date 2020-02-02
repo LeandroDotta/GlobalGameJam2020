@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1738262947
 Transform:
   m_ObjectHideFlags: 0
@@ -304,11 +304,15 @@ MonoBehaviour:
   climbSpeed: 5
   jumpForce: 17
   invulnerableTime: 2
+  groundCheckSize: 0.1
+  groundCheckLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   hammerSpawnPoint: {fileID: 3642561901574793164}
   stairSpawnPoint: {fileID: 19094365835500632}
-  groundCheck: {fileID: 0}
   hammerPrefab: {fileID: 3473096810201064479, guid: 342ccdc99e2f86bf5aa1e9e6f9a04f20,
     type: 3}
+  coll: {fileID: 8037018363702003434}
 --- !u!114 &642339176
 MonoBehaviour:
   m_ObjectHideFlags: 0

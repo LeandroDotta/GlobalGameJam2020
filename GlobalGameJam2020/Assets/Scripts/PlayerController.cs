@@ -10,14 +10,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float climbSpeed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float invulnerableTime;
+    [SerializeField] private float groundCheckSize = 0.1f;
+    [SerializeField] private LayerMask groundCheckLayer;
 
     [Header("Spawn Points")]
     [SerializeField] private Transform hammerSpawnPoint;
     [SerializeField] private Transform stairSpawnPoint;
 
     [Header("Components")]
-    [SerializeField] Collider2D groundCheck;
     [SerializeField] private GameObject hammerPrefab;
+    [SerializeField] private Collider2D coll;
 
     private float axisHorizontal;
     private float axisVertical;
@@ -61,6 +63,9 @@ public class PlayerController : MonoBehaviour
     {
         axisHorizontal = Input.GetAxisRaw("Horizontal");
         axisVertical = Input.GetAxisRaw("Vertical");
+
+        Bounds collBounds = coll.bounds;
+        grounded = Physics2D.OverlapArea(new Vector2(collBounds.min.x, collBounds.min.y), new Vector2(collBounds.max.x, collBounds.min.y - groundCheckSize), groundCheckLayer);
 
         if (!inputJump && (grounded || climbing))
             inputJump = Input.GetButtonDown("Jump");
@@ -233,10 +238,10 @@ public class PlayerController : MonoBehaviour
                 canRotateStair = true;
         }
 
-        if (layerWalkable == other.gameObject.layer /*other.CompareTag("Ground")*/)
-        {
-            grounded = true;
-        }
+        //if (layerWalkable == other.gameObject.layer /*other.CompareTag("Ground")*/)
+        //{
+        //    grounded = true;
+        //}
 
         if (other.CompareTag("Pickup"))
         {
@@ -250,10 +255,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (layerWalkable == other.gameObject.layer/*other.CompareTag("Ground")*/)
-        {
-            grounded = false;
-        }
+        //if (layerWalkable == other.gameObject.layer/*other.CompareTag("Ground")*/)
+        //{
+        //    grounded = false;
+        //}
 
         if (other.CompareTag("Stair"))
         {
@@ -268,8 +273,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (layerWalkable == other.gameObject.layer /*other.CompareTag("Ground")*/)
-            grounded = true;
+        //if (layerWalkable == other.gameObject.layer /*other.CompareTag("Ground")*/)
+            //grounded = true;
 
         if (other.CompareTag("Stair"))
             canClimb = true;
@@ -291,5 +296,15 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(invulnerableTime);
         invulnerable = false;
         Debug.Log("Player is vulnerable again");
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+
+        Bounds bounds = coll.bounds;
+        Vector3 center = new Vector3(bounds.center.x, bounds.min.y - groundCheckSize / 2);
+        Vector3 size = new Vector3(bounds.size.x, groundCheckSize);
+        Gizmos.DrawWireCube(center, size);
     }
 }
