@@ -109,7 +109,10 @@ public class PlayerController : MonoBehaviour
             Shoot();
         }
 
-
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("Intro");
+        }
 
         Move();
         Flip();
