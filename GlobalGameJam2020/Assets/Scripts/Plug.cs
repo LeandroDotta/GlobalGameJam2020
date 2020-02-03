@@ -6,6 +6,7 @@ public class Plug : MonoBehaviour
 {
     [SerializeField] private Transform baseTransform;
     [SerializeField] private Transform bodyTransform;
+    [SerializeField] private Sprite spritePlugged;
 
     private bool isFixed;
     private Collider2D triggerAreaCurrentColl;
@@ -14,6 +15,7 @@ public class Plug : MonoBehaviour
     private void PlugIt()
     {
         bodyTransform.position = baseTransform.position;
+        bodyTransform.GetComponent<SpriteRenderer>().sprite = spritePlugged;
     }
 
     private void OnCollisionEnter2D(Collision2D col)
