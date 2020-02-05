@@ -160,8 +160,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Vector2 movement = new Vector2(axisHorizontal, 0) * speed * Time.deltaTime;
-            transform.Translate(movement);
+            Vector2 movement = new Vector2(axisHorizontal * speed, rb2d.velocity.y);
+            rb2d.velocity = movement;
         }
     }
 
