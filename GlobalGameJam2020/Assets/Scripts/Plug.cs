@@ -4,18 +4,27 @@ using UnityEngine;
 
 public class Plug : MonoBehaviour
 {
-    [SerializeField] private Transform baseTransform;
     [SerializeField] private Transform bodyTransform;
+    [SerializeField] private Transform pluggedPositionTransform;
     [SerializeField] private Sprite spritePlugged;
 
     private bool isFixed;
     private Collider2D triggerAreaCurrentColl;
+    private Animator anim;
+    private SpriteRenderer spriteUnplugged;
 
+    private void Start()
+    {
+        anim = bodyTransform.GetChild(0).GetComponent<Animator>();
+        spriteUnplugged = bodyTransform.GetChild(0).GetComponent<SpriteRenderer>();
+    }
 
     private void PlugIt()
     {
-        bodyTransform.position = baseTransform.position;
-        bodyTransform.GetComponent<SpriteRenderer>().sprite = spritePlugged;
+        bodyTransform.position = pluggedPositionTransform.position;
+        spriteUnplugged.sprite = spritePlugged;
+        anim.Rebind();
+        anim.enabled = false;
     }
 
     private void OnCollisionEnter2D(Collision2D col)
