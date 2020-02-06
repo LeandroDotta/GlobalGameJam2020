@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 8377243461207757702}
   - component: {fileID: 6931714041929191893}
   - component: {fileID: 8377243461207757701}
+  - component: {fileID: 8089877519902048452}
   m_Layer: 10
   m_Name: Plug
   m_TagString: Untagged
@@ -203,6 +204,18 @@ MonoBehaviour:
   pluggedPositionTransform: {fileID: 3301896371537269735}
   spritePlugged: {fileID: 613936538977289601, guid: 2d4c581260737cf3781d68311c95d0a2,
     type: 3}
+--- !u!114 &8089877519902048452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8377243461207757703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47c854e978c5b52984c64ea100ffd42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8377243461395584186
 GameObject:
   m_ObjectHideFlags: 0

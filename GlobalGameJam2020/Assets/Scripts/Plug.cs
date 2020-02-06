@@ -13,10 +13,13 @@ public class Plug : MonoBehaviour
     private Animator anim;
     private SpriteRenderer spriteUnplugged;
 
+    private Goal goal;
+
     private void Start()
     {
         anim = bodyTransform.GetChild(0).GetComponent<Animator>();
         spriteUnplugged = bodyTransform.GetChild(0).GetComponent<SpriteRenderer>();
+        goal = GetComponent<Goal>();
     }
 
     private void PlugIt()
@@ -25,6 +28,9 @@ public class Plug : MonoBehaviour
         spriteUnplugged.sprite = spritePlugged;
         anim.Rebind();
         anim.enabled = false;
+
+        if (goal != null)
+            goal.Complete();
     }
 
     private void OnCollisionEnter2D(Collision2D col)
