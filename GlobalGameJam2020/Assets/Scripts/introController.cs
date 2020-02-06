@@ -19,6 +19,13 @@ public class introController : MonoBehaviour
         SceneManager.LoadScene(cena);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("Intro");
+        }
+    }
 
     public void PlaySfxButtonClick()
     {
