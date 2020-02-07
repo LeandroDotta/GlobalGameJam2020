@@ -37,9 +37,15 @@ public class introController : MonoBehaviour
         sfxButtonAS.PlayOneShot(sfxButtonHoverAC);
     }
 
-    public void painelInstructions()
+    public void painelInstructions(bool ligar)
     {
-        panelInstructions.SetActive(true);
+        panelInstructions.SetActive(ligar);
+    }
+
+    public void Sair()
+    {
+        Application.Quit();
+
     }
 
 
