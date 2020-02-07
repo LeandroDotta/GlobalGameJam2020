@@ -28,7 +28,8 @@ public class Coil : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         Debug.Log("Coil OnTriggerStay Detected");
-        Attract(other.transform);
+        if(other.tag == "Player")
+            Attract(other.transform);
     }
 
     private void OnTriggerExit2D(Collider2D other)
