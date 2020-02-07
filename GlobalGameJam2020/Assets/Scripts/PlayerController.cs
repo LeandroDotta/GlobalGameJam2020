@@ -182,30 +182,31 @@ public class PlayerController : MonoBehaviour
         if (hazard != null)
         {
 
-
-            if (hazard.oneHitKill)
-            {
-                Die();
-            }
-            else
-            {
-                if (!invulnerable)
+            if(hazard.on) {
+                if (hazard.oneHitKill)
                 {
-                    Vector2 impactDirection = new Vector2(transform.localScale.x > 0 ? -1 : 1, 1).normalized;
-                    rb2d.velocity = Vector2.zero;
-                    rb2d.AddForce(impactDirection * hitImpactForce, ForceMode2D.Impulse);
+                    Die();
+                }
+                else
+                {
+                    if (!invulnerable)
+                    {
+                        Vector2 impactDirection = new Vector2(transform.localScale.x > 0 ? -1 : 1, 1).normalized;
+                        rb2d.velocity = Vector2.zero;
+                        rb2d.AddForce(impactDirection * hitImpactForce, ForceMode2D.Impulse);
 
-                    SoundController.Instance.PlaySFX(11);
+                        SoundController.Instance.PlaySFX(11);
 
-                    Debug.Log("Applying Damage = " + hazard.damage);
-                    int life = health.TakeDamage(hazard.damage);
+                        Debug.Log("Applying Damage = " + hazard.damage);
+                        int life = health.TakeDamage(hazard.damage);
 
-                    Debug.Log("Current Damage: " + life);
+                        Debug.Log("Current Damage: " + life);
 
-                    if (life == 0)
-                        Die();
-                    else
-                        StartCoroutine("InvulnerableCoroutine");
+                        if (life == 0)
+                            Die();
+                        else
+                            StartCoroutine("InvulnerableCoroutine");
+                    }
                 }
             }
         }

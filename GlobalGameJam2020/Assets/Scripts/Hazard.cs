@@ -6,4 +6,5 @@ public class Hazard : MonoBehaviour
 {
     public bool oneHitKill;
     public int damage;
+    public bool on = true;
 }
