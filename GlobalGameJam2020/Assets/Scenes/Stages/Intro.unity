@@ -696,7 +696,7 @@ GameObject:
   - component: {fileID: 312725783}
   - component: {fileID: 312725782}
   m_Layer: 0
-  m_Name: Text_Instructions (1)
+  m_Name: Text_Rodape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -752,7 +752,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Para manuais em Chin\xEAs e Vietnamita, Mongol\xEAs, Klingon, Sindarin,
+  m_Text: "Para manuais em Chin\xEAs, Vietnamita, Mongol\xEAs, Klingon ou Sindarin,
     consulte nosso site.\n"
 --- !u!222 &312725783
 CanvasRenderer:
