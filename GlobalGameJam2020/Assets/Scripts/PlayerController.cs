@@ -179,6 +179,8 @@ public class PlayerController : MonoBehaviour
     {
         Hazard hazard = hazardObj.GetComponent<Hazard>();
         Debug.Log("Hazard: " + hazard);
+
+
         if (hazard != null)
         {
 
@@ -196,6 +198,7 @@ public class PlayerController : MonoBehaviour
                         rb2d.AddForce(impactDirection * hitImpactForce, ForceMode2D.Impulse);
 
                         SoundController.Instance.PlaySFX(11);
+                        SoundController.Instance.PlaySFX(12);
 
                         Debug.Log("Applying Damage = " + hazard.damage);
                         int life = health.TakeDamage(hazard.damage);

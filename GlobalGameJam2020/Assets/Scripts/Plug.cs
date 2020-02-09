@@ -29,6 +29,8 @@ public class Plug : MonoBehaviour
         anim.Rebind();
         anim.enabled = false;
 
+        SoundController.Instance.PlaySFX(13);
+
         if (goal != null)
             goal.Complete();
     }
