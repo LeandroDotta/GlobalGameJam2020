@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float invulnerableTime;
     [SerializeField] private float groundCheckSize = 0.1f;
     [SerializeField] private LayerMask groundCheckLayer;
-    [SerializeField] private float hitImpactForce = 5;
+    [SerializeField] private Vector2 hitImpactForce;
 
     [Header("Spawn Points")]
     [SerializeField] private Transform hammerSpawnPoint;
@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     private bool canClimb;
     private bool canRotateStair;
     private bool invulnerable;
+    private bool controllerLocked;
 
     private Rigidbody2D rb2d;
     private PlayerHealth health;
@@ -138,6 +139,9 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        if (controllerLocked)
+            return;
+
         if ((axisVertical !=0 | axisHorizontal !=0))
         {
             if (!audioSource.isPlaying)
@@ -184,7 +188,8 @@ public class PlayerController : MonoBehaviour
         if (hazard != null)
         {
 
-            if(hazard.on) {
+            if(hazard.on) 
+            {
                 if (hazard.oneHitKill)
                 {
                     Die();
@@ -209,6 +214,8 @@ public class PlayerController : MonoBehaviour
                             Die();
                         else
                             StartCoroutine("InvulnerableCoroutine");
+
+                        StartCoroutine("LockControllerCoroutine", 0.5f);
                     }
                 }
             }
@@ -224,6 +231,9 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
+        if (controllerLocked)
+            return;
+
         if (inputJump)
         {
             inputJump = false;
@@ -236,6 +246,9 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
+        if (controllerLocked)
+            return;
+
         if (hammer.gameObject.activeSelf)
             return;
 
@@ -331,6 +344,15 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(invulnerableTime);
         invulnerable = false;
         Debug.Log("Player is vulnerable again");
+    }
+
+    private IEnumerator LockControllerCoroutine(float time)
+    {
+        controllerLocked = true;
+
+        yield return new WaitForSeconds(time);
+
+        controllerLocked = false;
     }
 
     private void OnDrawGizmos()
