@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private int maxStair;
 
     private Queue<GameObject> stairQueue;
+
+    public event UnityAction<int> OnStairChange;
 
     private void Start()
     {
@@ -32,12 +35,16 @@ public class PlayerInventory : MonoBehaviour
         stair.transform.localScale = scale;
         stairObj.transform.position = position;
         stairObj.SetActive(true);
+
+        OnStairChange?.Invoke(stairQueue.Count);
     }
 
     public void StoreStair(GameObject stair)
     {
         stair.SetActive(false);
         stairQueue.Enqueue(stair);
+
+        OnStairChange?.Invoke(stairQueue.Count);
     }
 
     private void CreateObjects()
