@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 6971297566881310387}
   - component: {fileID: 6971297566881310385}
   - component: {fileID: 6971297566881310384}
+  - component: {fileID: 2898018011551864331}
   m_Layer: 5
   m_Name: StairCount
   m_TagString: Untagged
@@ -266,6 +267,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2898018011551864331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6971297566881310386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b584c8b02f194c3bd9eedb9d9cc4a0c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  textStair: {fileID: 6971297567699173251}
 --- !u!1 &6971297567069088139
 GameObject:
   m_ObjectHideFlags: 0
