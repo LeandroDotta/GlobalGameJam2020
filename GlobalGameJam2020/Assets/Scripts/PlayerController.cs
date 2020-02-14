@@ -225,7 +225,7 @@ public class PlayerController : MonoBehaviour
     private void Die()
     {
         // Restart Scene (for testing)
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("GameOver");
         // Go back to checkpoint
     }
 

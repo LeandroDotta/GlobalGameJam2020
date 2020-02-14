@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
         if (goalCount == goals.Length)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("Victory");
         }
     }
 }
