@@ -868,10 +868,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 713176667}
-  - component: {fileID: 713176666}
   - component: {fileID: 713176665}
+  - component: {fileID: 713176666}
   m_Layer: 0
-  m_Name: VitoriaGameOverSCript
+  m_Name: GameOverSCript
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -983,12 +983,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 713176664}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48743061adb50174bb35a122fab2bb15, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f650da46fb34d54a989b08c318f6f1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sfxButtonAS: {fileID: 713176665}
   sfxButtonClickAC: {fileID: 8300000, guid: 0f3aaf16d3ec2ab44aa92ac828621b71, type: 3}
   sfxButtonHoverAC: {fileID: 8300000, guid: ec22125914cd02346b6e7f22980f3e6c, type: 3}
+  sfxPlayerGameOver: {fileID: 8300000, guid: 4fffad4cdfc25ca43a15d3ee6fd6fd63, type: 3}
 --- !u!4 &713176667
 Transform:
   m_ObjectHideFlags: 0

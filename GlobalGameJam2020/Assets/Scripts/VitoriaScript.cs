@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class VitoriaGameOverScript : MonoBehaviour
+public class VitoriaScript : MonoBehaviour
 {
 
     public AudioSource sfxButtonAS;
@@ -12,11 +12,14 @@ public class VitoriaGameOverScript : MonoBehaviour
     public AudioClip sfxButtonClickAC;
     public AudioClip sfxButtonHoverAC;
 
+    public AudioClip sfxPlayerWin;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        sfxButtonAS.PlayOneShot(sfxPlayerWin);
     }
 
     // Update is called once per frame

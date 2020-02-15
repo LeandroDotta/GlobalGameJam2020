@@ -948,7 +948,7 @@ GameObject:
   - component: {fileID: 713176666}
   - component: {fileID: 713176665}
   m_Layer: 0
-  m_Name: VitoriaGameOverSCript
+  m_Name: VitoriaScript
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1066,6 +1066,7 @@ MonoBehaviour:
   sfxButtonAS: {fileID: 713176665}
   sfxButtonClickAC: {fileID: 8300000, guid: 0f3aaf16d3ec2ab44aa92ac828621b71, type: 3}
   sfxButtonHoverAC: {fileID: 8300000, guid: ec22125914cd02346b6e7f22980f3e6c, type: 3}
+  sfxPlayerWin: {fileID: 8300000, guid: 6ca966488a500db46913b2c630b6cbb0, type: 3}
 --- !u!4 &713176667
 Transform:
   m_ObjectHideFlags: 0
