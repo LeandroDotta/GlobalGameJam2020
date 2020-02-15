@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     [Header("Components")]
     [SerializeField] private GameObject hammerPrefab;
     [SerializeField] private Collider2D coll;
+    [SerializeField] private Animator anim;
 
     private float axisHorizontal;
     private float axisVertical;
@@ -72,6 +73,7 @@ public class PlayerController : MonoBehaviour
 
         Bounds collBounds = coll.bounds;
         grounded = Physics2D.OverlapArea(new Vector2(collBounds.min.x, collBounds.min.y), new Vector2(collBounds.max.x, collBounds.min.y - groundCheckSize), groundCheckLayer);
+        anim.SetBool("grounded", grounded);
 
         if (!inputJump && (grounded || climbing))
             inputJump = Input.GetButtonDown("Jump");
@@ -144,12 +146,14 @@ public class PlayerController : MonoBehaviour
 
         if ((axisVertical !=0 | axisHorizontal !=0))
         {
+            anim.SetBool("moving", true);
             if (!audioSource.isPlaying)
                 audioSource.Play();
         }
         else
         {
-            if(audioSource.isPlaying)
+            anim.SetBool("moving", false);
+            if (audioSource.isPlaying)
                 audioSource.Stop();
         }
         if (climbing)
@@ -208,6 +212,7 @@ public class PlayerController : MonoBehaviour
                         Debug.Log("Applying Damage = " + hazard.damage);
                         int life = health.TakeDamage(hazard.damage);
 
+                        anim.SetTrigger("takeHit");
                         Debug.Log("Current Damage: " + life);
 
                         if (life == 0)
@@ -225,6 +230,7 @@ public class PlayerController : MonoBehaviour
     private void Die()
     {
         // Restart Scene (for testing)
+        anim.SetTrigger("die");
         SceneManager.LoadScene("GameOver");
         // Go back to checkpoint
     }
@@ -236,6 +242,7 @@ public class PlayerController : MonoBehaviour
 
         if (inputJump)
         {
+            anim.SetTrigger("jump");
             inputJump = false;
             StopClimb();
             rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -340,9 +347,11 @@ public class PlayerController : MonoBehaviour
     private IEnumerator InvulnerableCoroutine()
     {
         invulnerable = true;
+        anim.SetBool("blink", true);
         Debug.Log("Player is Invulnerable");
         yield return new WaitForSeconds(invulnerableTime);
         invulnerable = false;
+        anim.SetBool("blink", false);
         Debug.Log("Player is vulnerable again");
     }
 
