@@ -1301,7 +1301,7 @@ GameObject:
   - component: {fileID: 1063010101}
   - component: {fileID: 1063010100}
   m_Layer: 0
-  m_Name: TTF3000---Segmentado 1
+  m_Name: "TTF3000 Anima\xE7\xE3o"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1317,7 +1317,7 @@ Animator:
   m_GameObject: {fileID: 1063010099}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5c59b38c052679b4db137fe21bab728c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4871b677c9298f64490bda876d79be58, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
