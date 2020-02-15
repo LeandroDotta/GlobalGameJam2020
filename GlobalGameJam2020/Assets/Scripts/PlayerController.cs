@@ -92,10 +92,14 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("ROTATE PRESSED");
                 focusedStair.ToggleOrientation();
+
+                SoundController.Instance.PlaySFX(15);
             } 
             else if (Input.GetButtonDown("Grab"))
             {
                 inventory.StoreStair(focusedStair.gameObject);
+
+                SoundController.Instance.PlaySFX(14);
             }
         }
         else
@@ -104,6 +108,8 @@ public class PlayerController : MonoBehaviour
             {
                 int direction = transform.localScale.x > 0 ? 1 : -1;
                 inventory.SpawnStair(stairSpawnPoint.position, direction);
+
+                SoundController.Instance.PlaySFX(16);
             }
         }
 
