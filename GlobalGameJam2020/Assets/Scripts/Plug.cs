@@ -7,8 +7,9 @@ public class Plug : MonoBehaviour
     [SerializeField] private Transform bodyTransform;
     [SerializeField] private Transform pluggedPositionTransform;
     [SerializeField] private Sprite spritePlugged;
+    public GameObject[] elementsToSwitch = new GameObject[0];
 
-    private bool isFixed;
+    private bool isFixed = false;
     private Collider2D triggerAreaCurrentColl;
     private Animator anim;
     private SpriteRenderer spriteUnplugged;
@@ -24,15 +25,24 @@ public class Plug : MonoBehaviour
 
     private void PlugIt()
     {
-        bodyTransform.position = pluggedPositionTransform.position;
-        spriteUnplugged.sprite = spritePlugged;
-        anim.Rebind();
-        anim.enabled = false;
+        if(!isFixed) {
+            bodyTransform.position = pluggedPositionTransform.position;
+            spriteUnplugged.sprite = spritePlugged;
+            anim.Rebind();
+            anim.enabled = false;
 
-        SoundController.Instance.PlaySFX(13);
+            SoundController.Instance.PlaySFX(13);
 
-        if (goal != null)
-            goal.Complete();
+            if (goal != null)
+                goal.Complete();
+
+            foreach (GameObject element in elementsToSwitch)
+            {
+                element.SendMessage("Switch");
+            }
+
+            isFixed = true;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
