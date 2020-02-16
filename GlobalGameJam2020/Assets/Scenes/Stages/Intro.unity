@@ -1379,8 +1379,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "MANUAL DE INSTRU\xC7\xD5ES\n\n\nMovimenta\xE7\xE3o:  SETAS ou WASD\nPulo: 
-    ESPA\xC7O\nJogar Martelo:  Z ou J\nPegar e Soltar Escada:  C ou L\nGirar Escada: 
-    X ou K\n\n"
+    ESPA\xC7O\nJogar Martelo:  Z\nPegar e Soltar Escada:  C \nGirar Escada e Desligar
+    Chave:  X\n\n"
 --- !u!222 &818141937
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2740,7 +2740,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.352239, y: 0.56141347}
   m_AnchorMax: {x: 0.731, y: 0.92158663}
-  m_AnchoredPosition: {x: 111.15001, y: -206.65}
+  m_AnchoredPosition: {x: 93, y: -208}
   m_SizeDelta: {x: 222.3, y: 334.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2043681224
