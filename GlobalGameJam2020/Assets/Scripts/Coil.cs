@@ -10,6 +10,13 @@ public class Coil : MonoBehaviour
     private float radius;
     private float proportion;
 
+    private AudioSource electromagneticAudio;
+
+    void Start()
+    {
+        electromagneticAudio = GetComponent<AudioSource>();
+    }
+
     public void Attract(Transform body) {
         radius = transform.GetChild(0).GetComponent<CircleCollider2D>().radius;
 
@@ -28,12 +35,15 @@ public class Coil : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         Debug.Log("Coil OnTriggerStay Detected");
-        if(other.tag == "Player")
+        if(other.tag == "Player") {
             Attract(other.transform);
+            electromagneticAudio.Play();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log("Coil OnTriggerExit Detected");
+        electromagneticAudio.Stop();
     }
 }
