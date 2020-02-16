@@ -8,6 +8,7 @@ public class SwitcherScript : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public Sprite[] switcherSprites = new Sprite[2];
     private bool isOn = false;
+    private bool keyPressed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,24 +24,32 @@ public class SwitcherScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if(other.tag == "Player") {
-            if (Input.GetKeyDown(KeyCode.X))
+      if(other.tag == "Player") {
+        if (Input.GetKeyDown(KeyCode.X) && !keyPressed)
+        {
+          keyPressed = true;
+            foreach (GameObject element in elements)
             {
-                foreach (GameObject element in elements)
-                {
-                    element.SendMessage("Switch");
-                }
-                if(isOn) {
-                    spriteRenderer.sprite = switcherSprites[0];
-                    isOn = false;
-                } else {
-                    spriteRenderer.sprite = switcherSprites[1];
-                    isOn = true;
-                }
-                Debug.Log("Switched");
+                element.SendMessage("Switch");
             }
-            //Attract(other.transform);
-            //electromagneticAudio.Play();
+            if(isOn) {
+                spriteRenderer.sprite = switcherSprites[0];
+                isOn = false;
+            } else {
+                spriteRenderer.sprite = switcherSprites[1];
+                isOn = true;
+            }
+            Debug.Log("Switched");
+            SoundController.Instance.PlaySFX(17);
         }
+        if (Input.GetKeyUp(KeyCode.X)) {
+          keyPressed = false;
+        }
+      }
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+      keyPressed = false;
     }
 }
